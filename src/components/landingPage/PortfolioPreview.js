@@ -31,7 +31,7 @@ const PortfolioPreview = () => {
         <Link
           onClick={ResetLocation}
           className="more-projects-btn pink-text"
-          to="/personal-portfolio/portfolio"
+          to="/portfolio"
         >
           More projects
         </Link>
