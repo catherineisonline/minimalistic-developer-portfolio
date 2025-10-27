@@ -1,10 +1,10 @@
-@import '../../core-ui/_base'
+@use '../../core-ui/_base' as base
 
 .navigation
     display: flex
     flex-direction: column
     align-items: flex-end
-    background-color: $black-bg
+    background-color: base.$black-bg
     height: 100%
     grid-column: span 1
     .navigation__logo img
@@ -33,7 +33,7 @@
         height: 100%
         position: fixed
         top: 0
-        background-color: $black-bg
+        background-color: base.$black-bg
         z-index: 99
     .navigation__menu.active_v
         display: flex
@@ -45,8 +45,8 @@
         text-align: center
     .navigation__link
         letter-spacing: 1px
-        color: $gray
-        font-family: $body-font
+        color: base.$gray
+        font-family: base.$body-font
         font-size: 1.5rem
         height: 40%
         transition: all 0.4s ease
@@ -55,7 +55,7 @@
         color: #fd1056
     .navigation__link.main-active
         text-decoration: none
-        color: $gray
+        color: base.$gray
 
     .navigation__socials
         display: flex
@@ -67,7 +67,7 @@
             width: 1.5rem
             height: 1.5rem
             max-width: 100%
-    @media (min-width: $lg-width)
+    @media (min-width: base.$lg-width)
         .navigation__logo img
             max-width: 80%
         .navigation__menu
