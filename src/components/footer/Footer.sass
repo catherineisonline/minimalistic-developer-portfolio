@@ -1,4 +1,4 @@
-@import '../../core-ui/_base'
+@use '../../core-ui/_base' as base
 
 .footer
     padding: 6rem 1rem
@@ -6,6 +6,6 @@
     display: flex
     flex-direction: row
     a
-        font-family: $codingfont
-        color: $white
+        font-family: base.$codingfont
+        color: base.$white
         opacity: 0.4
