@@ -43,7 +43,7 @@ export const ContactForm = () => {
     }
   };
   return (
-    <section>
+    <>
       {submit ? (
         <section className="form-success">
           <h3>Message successfully sent!</h3>
@@ -54,31 +54,39 @@ export const ContactForm = () => {
         </section>
       ) : (
         <form className="form form-tag" onSubmit={submitForm}>
-          <section>
+          <div>
             <input
               onChange={handleChange}
               value={formValues.fullname}
               type="text"
               placeholder="Full name"
               name="fullname"
+              autoComplete="given-name"
             />
             <br></br>
-            <label>{formErrors.fullname}</label>
-          </section>
-          <section>
-            <input onChange={handleChange} value={formValues.email} name="email" type="text" placeholder="Email" />
+            {formErrors.fullname && <span aria-live="polite">{formErrors.fullname}</span>}
+          </div>
+          <div>
+            <input
+              onChange={handleChange}
+              value={formValues.email}
+              name="email"
+              type="text"
+              placeholder="Email"
+              autoComplete="email"
+            />
             <br></br>
-            <label>{formErrors.email}</label>
-          </section>
-          <section>
+            {formErrors.email && <span aria-live="polite">{formErrors.email}</span>}
+          </div>
+          <div>
             <textarea onChange={handleChange} value={formValues.message} name="message" placeholder="Message" />
             <br></br>
-            <label>{formErrors.message}</label>
-          </section>
+            {formErrors.message && <span aria-live="polite">{formErrors.message}</span>}
+          </div>
           <button type="submit">Send</button>
           <br></br>
         </form>
       )}
-    </section>
+    </>
   );
 };

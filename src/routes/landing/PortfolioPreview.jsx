@@ -2,7 +2,7 @@ import { ProjectsPreview } from "./ProjectsPreview";
 
 export const PortfolioPreview = () => {
   return (
-    <article className="landing__portfolio">
+    <div className="landing__portfolio">
       <section className="portfolio-content">
         <h2 className="title-font pink-text h2-tag">Portfolio</h2>
         <p className="white-text p-tag">
@@ -22,6 +22,6 @@ export const PortfolioPreview = () => {
         </p>
       </section>
       <ProjectsPreview />
-    </article>
+    </div>
   );
 };
