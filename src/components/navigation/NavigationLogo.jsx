@@ -6,12 +6,13 @@ export const NavigationLogo = (props) => {
   return (
     <NavLink
       to="/"
+      aria-label="Go to homepage"
       className="navigation__logo"
       onClick={() => {
         ScrollToTop();
         props.closeMenu();
       }}>
-      <img src={IconBlack} alt="" aria-hidden="true"></img>
+      <img src={IconBlack} alt="" aria-hidden="true" />
     </NavLink>
   );
 };

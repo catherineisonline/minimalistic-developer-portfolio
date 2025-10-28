@@ -20,13 +20,13 @@ export const Navigation = () => {
     setHiddenMenu(true) || (ref.current.src = Whiteham);
   }
   return (
-    <article className="navigation">
+    <header className="navigation">
       <NavigationHamburger ToggleMenu={ToggleMenu} ref={ref} />
-      <section className={`navigation__menu${hiddenMenu ? `` : ` active_v`}`}>
+      <nav className={`navigation__menu${hiddenMenu ? `` : ` active_v`}`}>
         <NavigationLogo closeMenu={closeMenu} />
         <NavigationLinks closeMenu={closeMenu} />
         <NavigationSocials />
-      </section>
-    </article>
+      </nav>
+    </header>
   );
 };

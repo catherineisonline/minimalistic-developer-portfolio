@@ -6,6 +6,8 @@ export const NavigationHamburger = React.forwardRef((props, ref) => (
     className="menu-icon"
     src={Whiteham}
     alt="Hamburger menu"
+    width={50}
+    height={50}
     ref={ref}
     onClick={() => {
       props.ToggleMenu();

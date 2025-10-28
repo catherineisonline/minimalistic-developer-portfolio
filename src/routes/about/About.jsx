@@ -5,7 +5,7 @@ import { Stack } from "./Stack";
 import { Education } from "./Education";
 import { Experience } from "./Experience";
 import { DownloadResume } from "./DownloadResume";
-import { ScrollToTop } from "../../helpers/ScrollToTop";
+import { ScrollButton } from "../../components/ScrollButton.jsx";
 import { certificationData } from "../../data/experience.js";
 import { AboutMe } from "./AboutMe";
 
@@ -43,7 +43,7 @@ export const About = () => {
           </section>
         ))}
       </section>
-      <ScrollToTop />
+      <ScrollButton />
       <Footer />
     </main>
   );

@@ -4,28 +4,36 @@ import { projectsData } from "../../data/projects";
 
 export const Projects = () => {
   return (
-    <section className="projects-grid">
+    <ul className="projects-grid">
       {projectsData.map((project) => (
-        <section key={project.id} className="projects-grid__project">
+        <li key={project.id} className="projects-grid__project">
           <img src={project.img} alt="" aria-hidden="true" className="projects-grid__cover" />
-          <section className="projects-grid__description">
+          <div className="projects-grid__description">
             <p className="white-text p-tag">{project.description}</p>
-            <section className="projects-grid__stack">
+            <div className="projects-grid__stack">
               {project.stack.map((stackName, index) => (
                 <p key={index}>{stackName}</p>
               ))}
-            </section>
-            <section className="projects-grid__links">
-              <a href={project.src} target="_blank" rel="noopener noreferrer">
-                <img src={ExternalLink} alt="Link to project" />
+            </div>
+            <div className="projects-grid__links">
+              <a
+                aria-label={`Live preview of ${project.name}`}
+                href={project.src}
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src={ExternalLink} alt="" aria-hidden="true" />
               </a>
-              <a href={project.source} target="_blank" rel="noopener noreferrer">
-                <img src={GithubRepo} alt="Link to Github" />
+              <a
+                aria-label={`Source code of ${project.name}`}
+                href={project.source}
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src={GithubRepo} alt="" aria-hidden="true" />
               </a>
-            </section>
-          </section>
-        </section>
+            </div>
+          </div>
+        </li>
       ))}
-    </section>
+    </ul>
   );
 };
