@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { validate } from "../../helpers/form-validation";
 export const ContactForm = () => {
   const [formValues, setFormValues] = useState({ fullname: "", email: "", message: "" });
   const [formErrors, setFormErrors] = useState({});
@@ -7,40 +7,19 @@ export const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-  const handleValidation = (values) => {
-    const errors = {};
-    const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    const numberRegex = /\d/;
-
-    if (!values.fullname) {
-      errors.fullname = "Enter your full name";
-    } else if (numberRegex.test(values.fullname)) {
-      errors.fullname = "Full name can't be numbers!";
-    }
-    if (!values.email) {
-      errors.email = "Enter your email";
-    } else if (!emailRegex.test(values.email)) {
-      errors.email = "Imvalid email format";
-    }
-    if (!values.message) {
-      errors.message = "Message field can't be empty";
-    } else if (values.message.length < 10) {
-      errors.message = "The message should contain min. 10 characters";
-    }
-    return errors;
+    setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-    setFormErrors(handleValidation(formValues));
-    if (Object.keys(handleValidation(formValues)).length > 0) {
+    const errors = validate(formValues);
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
       return;
-    } else {
-      setSubmit(true);
-      setFormValues({ fullname: "", email: "", message: "" });
     }
+    setSubmit(true);
+    setFormValues({ fullname: "", email: "", message: "" });
+    setFormErrors({});
   };
   return (
     <>
