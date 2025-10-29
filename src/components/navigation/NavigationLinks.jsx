@@ -1,52 +1,30 @@
 import { NavLink } from "react-router-dom";
-import { ScrollToTop } from "../../helpers/ScrollToTop";
 
 const activeNavLink = ({ isActive }) => "gray-text navigation__link" + (isActive ? " active" : "");
 
-export const NavigationLinks = (props) => {
+export const NavigationLinks = ({ closeMenu }) => {
   return (
     <ul className="navigation__links">
       <li>
         <NavLink
           to="/"
           className={({ isActive }) => "gray-text navigation__link" + (isActive ? " main-active" : "")}
-          onClick={() => {
-            ScrollToTop();
-            props.closeMenu();
-          }}>
+          onClick={closeMenu}>
           Main
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/about"
-          onClick={() => {
-            ScrollToTop();
-            props.closeMenu();
-          }}
-          className={activeNavLink}>
+        <NavLink to="/about" className={activeNavLink} onClick={closeMenu}>
           About
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/portfolio"
-          className={activeNavLink}
-          onClick={() => {
-            ScrollToTop();
-            props.closeMenu();
-          }}>
+        <NavLink to="/portfolio" className={activeNavLink} onClick={closeMenu}>
           Portfolio
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/contact"
-          className={activeNavLink}
-          onClick={() => {
-            ScrollToTop();
-            props.closeMenu();
-          }}>
+        <NavLink to="/contact" className={activeNavLink} onClick={closeMenu}>
           Contact
         </NavLink>
       </li>

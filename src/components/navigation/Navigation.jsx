@@ -4,24 +4,25 @@ import { NavigationHamburger } from "./NavigationHamburger";
 import { NavigationLogo } from "./NavigationLogo";
 import { NavigationLinks } from "./NavigationLinks";
 import { NavigationSocials } from "./NavigationSocials";
-import { useState } from "react";
-import React from "react";
+import { useRef, useState } from "react";
 import "./Navigation.sass";
+import { ScrollToTop } from "../../helpers/ScrollToTop";
 
 export const Navigation = () => {
   const [hiddenMenu, setHiddenMenu] = useState(true);
-  const ref = React.useRef();
-  function ToggleMenu() {
+  const ref = useRef();
+  function toggleMenu() {
     hiddenMenu
       ? setHiddenMenu(false) || (ref.current.src = WhiteXham)
       : setHiddenMenu(true) || (ref.current.src = Whiteham);
   }
   function closeMenu() {
     setHiddenMenu(true) || (ref.current.src = Whiteham);
+    ScrollToTop();
   }
   return (
     <header className="navigation">
-      <NavigationHamburger ToggleMenu={ToggleMenu} ref={ref} />
+      <NavigationHamburger toggleMenu={toggleMenu} ref={ref} />
       <nav className={`navigation__menu${hiddenMenu ? `` : ` active_v`}`}>
         <NavigationLogo closeMenu={closeMenu} />
         <NavigationLinks closeMenu={closeMenu} />
